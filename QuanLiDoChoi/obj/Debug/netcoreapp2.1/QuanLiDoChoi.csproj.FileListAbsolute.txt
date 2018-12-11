@@ -5,7 +5,6 @@ P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\QuanLiDoChoi.dll
 P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\QuanLiDoChoi.pdb
 P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\QuanLiDoChoi.Views.dll
 P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\QuanLiDoChoi.Views.pdb
-P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.csprojAssemblyReference.cache
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.csproj.CoreCompileInputs.cache
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.RazorAssemblyInfo.cache
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.RazorAssemblyInfo.cs
@@ -30,3 +29,7 @@ P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.Views.pdb
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.dll
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.pdb
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.csproj.CopyComplete
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.csprojAssemblyReference.cache
+P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\khachhang.api.dll
+P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\khachhang.api.pdb
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Index.g.cshtml.cs

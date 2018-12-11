@@ -1,0 +1,32 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  khachhang.api:
+    build:
+      context: P:\QuanLiDoChoi
+      dockerfile: khachhang.api\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: khachhangapi
+    ports:
+    - published: 8001
+      target: 80
+    - target: 80
+  quanlidochoi:
+    build:
+      context: P:\QuanLiDoChoi
+      dockerfile: QuanLiDoChoi\Dockerfile
+    depends_on:
+    - khachhang.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      KhachHangUrl: http://khachhang.api
+    image: quanlidochoi
+    ports:
+    - published: 8000
+      target: 80
+    - target: 80
+    restart: on-failure
+version: '3.4'

@@ -3,7 +3,6 @@ P:\QuanLiDoChoi\khachhang.api\bin\Debug\netcoreapp2.1\khachhang.api.runtimeconfi
 P:\QuanLiDoChoi\khachhang.api\bin\Debug\netcoreapp2.1\khachhang.api.runtimeconfig.dev.json
 P:\QuanLiDoChoi\khachhang.api\bin\Debug\netcoreapp2.1\khachhang.api.dll
 P:\QuanLiDoChoi\khachhang.api\bin\Debug\netcoreapp2.1\khachhang.api.pdb
-P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.csprojAssemblyReference.cache
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.csproj.CoreCompileInputs.cache
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.RazorAssemblyInfo.cache
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.RazorAssemblyInfo.cs
@@ -12,3 +11,4 @@ P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.AssemblyInfo
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.RazorTargetAssemblyInfo.cache
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.dll
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.pdb
+P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.csprojAssemblyReference.cache

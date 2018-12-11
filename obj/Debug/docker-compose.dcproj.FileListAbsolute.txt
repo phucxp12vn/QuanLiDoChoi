@@ -1,0 +1,9 @@
+P:\QuanLiDoChoi\bin\Debug\khachhang.api.dll
+P:\QuanLiDoChoi\bin\Debug\khachhang.api.pdb
+P:\QuanLiDoChoi\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+P:\QuanLiDoChoi\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+P:\QuanLiDoChoi\obj\Debug\docker-compose.dcproj.CopyComplete
+P:\QuanLiDoChoi\bin\Debug\QuanLiDoChoi.Views.dll
+P:\QuanLiDoChoi\bin\Debug\QuanLiDoChoi.Views.pdb
+P:\QuanLiDoChoi\bin\Debug\QuanLiDoChoi.dll
+P:\QuanLiDoChoi\bin\Debug\QuanLiDoChoi.pdb

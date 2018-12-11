@@ -27,7 +27,7 @@ namespace khachhang.api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            var connection = @"Server=172.18.43.84,1433;Database=QL_TaiKhoan;User ID=sa;Password=Password1;ConnectRetryCount=0";
+            var connection = @"Server=172.18.47.214,1433;Database=QL_TaiKhoan;User ID=sa;Password=Password1;ConnectRetryCount=0";
             services.AddDbContext<QL_TaiKhoanContext>(options => options.UseSqlServer(connection));
         }
 
