@@ -19,7 +19,7 @@ namespace QuanLiDoChoi.Controllers
         static void GetAPI()
         {
             client.BaseAddress = apiAddress;
-           // client.BaseAddress = new Uri("http://172.18.32.122/"); 
+          //client.BaseAddress = new Uri("http://172.18.32.122/"); 
 
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -57,6 +57,109 @@ namespace QuanLiDoChoi.Controllers
 
             return View(taikhoan);
         }
+        [HttpGet(Name = "Get an detail")]
+        public async Task<IActionResult> Details(string id)
+        {
+            if (!apiAddress.Equals(client.BaseAddress))
+            {
+                GetAPI();
+            }
 
+            Taikhoan taikhoan = null;
+
+            HttpResponseMessage respond = await client.GetAsync($"{path}/{id}");
+
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                taikhoan = await respond.Content.ReadAsAsync<Taikhoan>();
+            }
+
+            return View(taikhoan);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost(Name = "Create a new one")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("TaiKhoan1,HoTen,GioiTinh,NgaySinh,Sdt,DiaChi")] Taikhoan taikhoan)
+        {
+            if (!apiAddress.Equals(client.BaseAddress))
+            {
+                GetAPI();
+            }
+
+            if (ModelState.IsValid)
+            {
+                taikhoan.MatKhau = "fsdafsafsa";
+
+                HttpResponseMessage respond = await client.PostAsJsonAsync(path, taikhoan);
+                respond.EnsureSuccessStatusCode();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(taikhoan);
+        }
+
+        // GET: KhachHangs/Edit/5
+        [HttpGet(Name = "Get an content to edit")]
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (!apiAddress.Equals(client.BaseAddress))
+            {
+                GetAPI();
+            }
+
+            Taikhoan taikhoan = null;
+
+            HttpResponseMessage respond = await client.GetAsync($"{path}/{id}");
+
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                taikhoan = await respond.Content.ReadAsAsync<Taikhoan>();
+            }
+
+            return View(taikhoan);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost(Name = "Update a content")]
+        public async Task<IActionResult> Edit(string id, [Bind("TaiKhoan1,HoTen,GioiTinh,NgaySinh,Sdt,DiaChi")] Taikhoan taikhoan)
+        {
+            if (!apiAddress.Equals(client.BaseAddress))
+            {
+                GetAPI();
+            }
+
+            if (ModelState.IsValid)
+            {
+                taikhoan.MatKhau = "fsdafsafsa";
+                HttpResponseMessage respond = await client.PutAsJsonAsync($"{path}/{id}", taikhoan);
+                respond.EnsureSuccessStatusCode();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(taikhoan);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(string TaiKhoan1)
+        {
+            if (!apiAddress.Equals(client.BaseAddress))
+            {
+                GetAPI();
+            }
+
+            HttpResponseMessage respond = await client.DeleteAsync($"{path}/{TaiKhoan1}");
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
