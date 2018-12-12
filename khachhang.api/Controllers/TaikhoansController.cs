@@ -83,14 +83,14 @@ namespace khachhang.api.Controllers
 
         // POST: api/Taikhoans
         [HttpPost]
-        public async Task<IActionResult> PostTaikhoan([FromBody] Taikhoan taikhoan)
+        public async Task<IActionResult> PostTaikhoan([FromBody] TaikhoanDK taikhoan)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Taikhoan.Add(taikhoan);
+            _context.Taikhoan.Add((Taikhoan)taikhoan);
             try
             {
                 await _context.SaveChangesAsync();

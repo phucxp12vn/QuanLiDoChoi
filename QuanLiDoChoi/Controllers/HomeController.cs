@@ -36,14 +36,56 @@ namespace QuanLiDoChoi.Controllers
            
             return View();
         }
-        
 
-        public IActionResult dangnhap()
+        //Dang ky moi tai khoan
+        public IActionResult dangky()
         {
             return View();
         }
 
         [HttpPost(Name = "Create a new one")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> dangky([Bind("TaiKhoan1,HoTen,MatKhau,MatKhauXacNhan,Email,GioiTinh,NgaySinh,Sdt,DiaChi")] TaikhoanDK taikhoan)
+        {
+            if (!apiAddress.Equals(client.BaseAddress))
+            {
+                GetAPI();
+            }
+            if (ModelState.IsValid)
+            {
+                HttpResponseMessage respond = await client.GetAsync($"{path}/{taikhoan.TaiKhoan1}");
+
+                if (respond.IsSuccessStatusCode)
+                {
+                    ModelState.AddModelError("", "Mã tài khoản đã được sử dụng!");
+                }
+                else
+                {
+                    taikhoan.Flag = 1;
+                    taikhoan.Quyen = "2";
+                    HttpResponseMessage result = await client.PostAsJsonAsync(path, taikhoan);
+                    result.EnsureSuccessStatusCode();
+
+                    return RedirectToAction(nameof(Index));
+                }
+
+            }
+            else
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                ModelState.AddModelError("", "Thông tin nhập vào không hợp lệ");
+            }
+            return View(taikhoan);
+        }
+
+
+        //Dang nhap tai khoan
+        public IActionResult dangnhap()
+        {
+            return View();
+        }
+
+        [HttpPost(Name = "Sign in")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> dangnhap([Bind("TaiKhoan1,MatKhau")] Taikhoan taikhoan)
         {
