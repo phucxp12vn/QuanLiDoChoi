@@ -68,7 +68,7 @@ namespace QuanLiDoChoi.Controllers
                     HttpResponseMessage result = await client.PostAsJsonAsync(path, taikhoan);
                     result.EnsureSuccessStatusCode();
 
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("dangnhap",taikhoan);
                 }
 
             }
@@ -124,7 +124,12 @@ namespace QuanLiDoChoi.Controllers
             return View(taikhoan);
         }
 
-
+        public IActionResult logout()
+        {
+            HttpContext.Session.SetString("userName", "");
+            HttpContext.Session.SetString("power", "");
+            return Redirect("/");
+        }
 
     }
 }
