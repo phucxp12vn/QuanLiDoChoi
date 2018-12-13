@@ -9,7 +9,7 @@ using khachhang.api.Models;
 
 namespace QuanLiDoChoi.Controllers
 {
-    public class taikhoanController : Controller
+    public class taikhoanController : BaseController
     {
         //private readonly QL_TaiKhoanContext _context;
         static HttpClient client = new HttpClient();
