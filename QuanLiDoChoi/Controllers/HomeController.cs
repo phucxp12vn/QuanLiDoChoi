@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using Newtonsoft.Json;
 using khachhang.api.Models;
+using Microsoft.AspNetCore.Http;
+using QuanLiDoChoi.Common;
 
 namespace QuanLiDoChoi.Controllers
 {
@@ -97,6 +99,8 @@ namespace QuanLiDoChoi.Controllers
             Taikhoan taiKhoanGetFromAPI = null;
 
             HttpResponseMessage respond = await client.GetAsync($"{path}/{taikhoan.TaiKhoan1}");
+            ViewBag.Name = HttpContext.Session.GetString("abc");
+
 
             if (respond.IsSuccessStatusCode)
             {
@@ -104,6 +108,11 @@ namespace QuanLiDoChoi.Controllers
                 taiKhoanGetFromAPI = await respond.Content.ReadAsAsync<Taikhoan>();
                 if (taikhoan.MatKhau == taiKhoanGetFromAPI.MatKhau)
                 {
+                    //var userSession = new userLogin();
+                    //userSession.TaiKhoan1 = taikhoan.TaiKhoan1;
+                    //userSession.Quyen = taikhoan.Quyen;
+                    //HttpContext.Session.SetString(CommonConstants.USER_SESSION, userSession);
+                    HttpContext.Session.SetString("userName", taikhoan.TaiKhoan1);
                     return Redirect("/");
                 }
                 else
