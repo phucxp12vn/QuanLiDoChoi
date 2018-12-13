@@ -4,4 +4,43 @@
 @using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
-@HttpContextAccessor.HttpContext.Session.GetString("userName")
+@{
+    var userName = @HttpContextAccessor.HttpContext.Session.GetString("userName");
+    var power = @HttpContextAccessor.HttpContext.Session.GetString("power");
+
+}
+@if (userName == null || userName == "")
+{
+    <li>
+        <a href="/Home/dangnhap">
+            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng nhập
+        </a>
+    </li>
+    <li>
+        <a href="/Home/dangky">
+            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng kí
+        </a>
+    </li>
+}
+else
+{
+    <li>
+        <a>
+            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Xin chào: @userName
+        </a>
+    </li>
+    <li>
+        <a>
+            <span class="fa fa-sign-out" aria-hidden="true"></span> @Html.ActionLink("Thoát", "logout", "Home")
+        </a>
+    </li>
+    if (power == "1")
+    {
+        <li>
+            <a>
+                <span class="fa fa-share-square" aria-hidden="true"></span> <a href="#"> Trang Admin</a>
+            </a>
+        </li>
+    }
+
+}
