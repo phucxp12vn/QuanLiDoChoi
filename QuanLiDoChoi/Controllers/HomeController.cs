@@ -7,7 +7,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using khachhang.api.Models;
 using Microsoft.AspNetCore.Http;
-using QuanLiDoChoi.Common;
+
 
 namespace QuanLiDoChoi.Controllers
 {
@@ -108,11 +108,8 @@ namespace QuanLiDoChoi.Controllers
                 taiKhoanGetFromAPI = await respond.Content.ReadAsAsync<Taikhoan>();
                 if (taikhoan.MatKhau == taiKhoanGetFromAPI.MatKhau)
                 {
-                    //var userSession = new userLogin();
-                    //userSession.TaiKhoan1 = taikhoan.TaiKhoan1;
-                    //userSession.Quyen = taikhoan.Quyen;
-                    //HttpContext.Session.SetString(CommonConstants.USER_SESSION, userSession);
-                    HttpContext.Session.SetString("userName", taikhoan.TaiKhoan1);
+                    HttpContext.Session.SetString("userName", taiKhoanGetFromAPI.TaiKhoan1);
+                    HttpContext.Session.SetString("power", taiKhoanGetFromAPI.Quyen);
                     return Redirect("/");
                 }
                 else
