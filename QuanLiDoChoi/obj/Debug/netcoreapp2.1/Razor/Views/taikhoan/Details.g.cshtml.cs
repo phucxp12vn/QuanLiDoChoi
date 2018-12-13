@@ -171,7 +171,7 @@ using QuanLiDoChoi.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1099, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c802f52825fc4b09832eb396b1f86ed2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba98943d48c84b7d8f26176382b91819", async() => {
                 BeginContext(1152, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -206,7 +206,7 @@ using QuanLiDoChoi.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(1168, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1507fe13e024464cb194dd3041641ba5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4786fd22009a458bb54183bbfbd5b3d2", async() => {
                 BeginContext(1190, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
@@ -228,12 +228,12 @@ using QuanLiDoChoi.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(1214, 244, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81b5455cc7104ef3a5d0ae1729d1e7b3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d553d1147f34465f9961a979d023c938", async() => {
                 BeginContext(1270, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1280, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f38435577d3b4d6583a49f205494677a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9a18b61374c14a2f8e7216623b5a758f", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

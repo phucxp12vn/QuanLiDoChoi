@@ -24,12 +24,29 @@ services:
       dockerfile: QuanLiDoChoi\Dockerfile
     depends_on:
     - khachhang.api
+    - sanpham.api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       KhachHangUrl: http://khachhang.api
+      SanPhamUrl: http://sanpham.api
     image: quanlidochoi
     ports:
     - published: 8000
+      target: 80
+    - target: 80
+    restart: on-failure
+  sanpham.api:
+    build:
+      context: P:\QuanLiDoChoi
+      dockerfile: sanpham.api\Dockerfile
+    depends_on:
+    - sql.data
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: Server=sql.data;Initial Catalog=QL_SanPham;User Id=sa;Password=Password1
+    image: sanphamapi
+    ports:
+    - published: 8002
       target: 80
     - target: 80
     restart: on-failure

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "khachhang.api", "khachhang.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C421592E-A178-4E1F-B26C-A9A661CC7EF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sanpham.api", "sanpham.api\sanpham.api.csproj", "{3DA7A2DD-D809-408A-8198-34AE5A1C7ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C421592E-A178-4E1F-B26C-A9A661CC7EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C421592E-A178-4E1F-B26C-A9A661CC7EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C421592E-A178-4E1F-B26C-A9A661CC7EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA7A2DD-D809-408A-8198-34AE5A1C7ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA7A2DD-D809-408A-8198-34AE5A1C7ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA7A2DD-D809-408A-8198-34AE5A1C7ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA7A2DD-D809-408A-8198-34AE5A1C7ABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,13 @@
+P:\QuanLiDoChoi\sanpham.api\bin\Debug\netcoreapp2.1\sanpham.api.deps.json
+P:\QuanLiDoChoi\sanpham.api\bin\Debug\netcoreapp2.1\sanpham.api.runtimeconfig.json
+P:\QuanLiDoChoi\sanpham.api\bin\Debug\netcoreapp2.1\sanpham.api.runtimeconfig.dev.json
+P:\QuanLiDoChoi\sanpham.api\bin\Debug\netcoreapp2.1\sanpham.api.dll
+P:\QuanLiDoChoi\sanpham.api\bin\Debug\netcoreapp2.1\sanpham.api.pdb
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.csproj.CoreCompileInputs.cache
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.RazorAssemblyInfo.cache
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.RazorAssemblyInfo.cs
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.AssemblyInfoInputs.cache
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.AssemblyInfo.cs
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.RazorTargetAssemblyInfo.cache
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.dll
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.pdb
