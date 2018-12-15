@@ -38,7 +38,7 @@
                 @foreach (var sp in Model)
                 {
                     var quantity = (int)1;
-                    var url = "Product/Detail/" + sp.MaSp;
+                    var url = "Product/" + sp.MaSp;
                     var urlcart = "Cart/AddItem?masp=" + sp.MaSp + "&soluong=" + quantity;
                         <div class="col-md-4 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
@@ -46,7 +46,7 @@
                                         <img src="@sp.Hinhanhindex" alt="">
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
-                                                <a href="@Url.Action("Detail","Product",new { id = sp.MaSp })" class="link-product-add-cart">Xem nhanh</a>
+                                                <a href="@Url.Action("Product","Home",new { id = sp.MaSp })" class="link-product-add-cart">Xem nhanh</a>
                                             </div>
                                         </div>
                                         <span class="product-new-top">New</span>

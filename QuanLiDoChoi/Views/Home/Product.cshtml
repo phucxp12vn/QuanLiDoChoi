@@ -1,0 +1,116 @@
+﻿@model sanpham.api.Models.Sanpham
+@{
+    ViewData["Title"] = "Product";
+    var arrListStr = (string[])Model.MotaSp.Split('*');
+
+}
+
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="index.html">Trang chủ</a>
+                    <i>|</i>
+                </li>
+                <li>@Model.TenSp</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- //page -->
+<!-- Single Page -->
+<div class="banner-bootom-w3-agileits">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            Thông tin sản phẩm
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="col-md-5 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+
+                    <li data-thumb="@Model.Hinhanh">
+                        <div class="thumb-image">
+                            <img src="@Model.Hinhanh" data-imagezoom="true" class="img-responsive" alt="">
+                        </div>
+                    </li>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 single-right-left simpleCart_shelfItem">
+            <h3>@Model.TenSp</h3>
+
+            <p>
+                <span class="item_price">@Model.GiaBanLe.ToString() VNĐ</span>
+
+            </p>
+            <div class="single-infoagile">
+                <ul>
+                    <li>
+                        Giao hàng miễn phí.
+                    </li>
+                    <li>
+                        Thanh toán khi nhận hàng.
+                    </li>
+                    <li>
+                        Shipping tốc độ cao.
+                    </li>
+                    <li>
+                        Xuất xử ở @Model.XuatSu.
+                    </li>
+                    <li>
+                        Số lượng còn lại:
+                        <span class="item_price">@Model.SoLuongTon</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-single-w3l">
+                <p>
+                    <i class="fa fa-hand-o-right" aria-hidden="true">Mô tả sản phẩm</i>
+
+                </p>
+                <ul>
+                    @foreach (string a in arrListStr)
+                    {
+                        var mota = a;
+                        <li>
+                            @mota
+                        </li>
+                    }
+                </ul>
+
+                <p>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                    <label>Cho phép hoàn trả sản phẩm.</label>
+                </p>
+            </div>
+            <div class="occasion-cart">
+                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                    <form>
+                        <fieldset>
+
+                            <input type="button" onclick="them('@Model.MaSp')" value="Thêm vào giỏ" class="button" />
+                        </fieldset>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+
+
+

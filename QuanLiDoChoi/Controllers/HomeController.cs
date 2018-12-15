@@ -28,8 +28,8 @@ namespace QuanLiDoChoi.Controllers
 
         }
 
-        const string path = "api/taikhoans";
-        const string path1 = "api/sanphams";
+        const string pathKH = "api/taikhoans";
+        const string pathSP = "api/sanphams";
 
 
 
@@ -39,7 +39,7 @@ namespace QuanLiDoChoi.Controllers
 
             List<Sanpham> sanpham = new List<Sanpham>();
 
-            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync(path1);
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync(pathSP);
 
             if (respond.IsSuccessStatusCode)
             {
@@ -54,6 +54,22 @@ namespace QuanLiDoChoi.Controllers
             return View(sanpham);
         }
 
+        [HttpGet(Name = "Get an detail of product")]
+        public async Task<IActionResult> Product(string id)
+        {
+           
+            Sanpham sanpham = null;
+
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync($"{pathSP}/{id}");
+
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                sanpham = await respond.Content.ReadAsAsync<Sanpham>();
+            }
+
+            return View(sanpham);
+        }
         //Dang ky moi tai khoan
         public IActionResult dangky()
         {
@@ -68,7 +84,7 @@ namespace QuanLiDoChoi.Controllers
             if (ModelState.IsValid)
             {
                 HttpClient client = GetAPI("KhachHangUrl");
-                HttpResponseMessage respond = await client.GetAsync($"{path}/{taikhoan.TaiKhoan1}");
+                HttpResponseMessage respond = await client.GetAsync($"{pathKH}/{taikhoan.TaiKhoan1}");
 
                 if (respond.IsSuccessStatusCode)
                 {
@@ -78,7 +94,7 @@ namespace QuanLiDoChoi.Controllers
                 {
                     taikhoan.Flag = 1;
                     taikhoan.Quyen = "2";
-                    HttpResponseMessage result = await client.PostAsJsonAsync(path, taikhoan);
+                    HttpResponseMessage result = await client.PostAsJsonAsync(pathKH, taikhoan);
                     result.EnsureSuccessStatusCode();
 
                     HttpContext.Session.SetString("userName", taikhoan.TaiKhoan1);
@@ -109,10 +125,7 @@ namespace QuanLiDoChoi.Controllers
 
             Taikhoan taiKhoanGetFromAPI = null;
 
-            HttpResponseMessage respond = await GetAPI("KhachHangUrl").GetAsync($"{path}/{taikhoan.TaiKhoan1}");
-            ViewBag.Name = HttpContext.Session.GetString("abc");
-
-
+            HttpResponseMessage respond = await GetAPI("KhachHangUrl").GetAsync($"{pathKH}/{taikhoan.TaiKhoan1}");
             if (respond.IsSuccessStatusCode)
             {
                 // Gán dữ liệu API đọc đượcs

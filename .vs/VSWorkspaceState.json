@@ -1,8 +1,14 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\QuanLiDoChoi"
+    "\\QuanLiDoChoi",
+    "\\QuanLiDoChoi\\Views",
+    "\\QuanLiDoChoi\\Views\\Admin",
+    "\\QuanLiDoChoi\\Views\\Shared",
+    "\\QuanLiDoChoi\\Views\\taikhoan",
+    "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin",
+    "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin\\vendor\\font-awesome",
+    "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin\\vendor\\font-awesome\\css",
+    "\\sanpham.api"
   ],
-  "SelectedNode": "\\QuanLiDoChoi\\Controllers",
   "PreviewInSolutionExplorer": false
 }
