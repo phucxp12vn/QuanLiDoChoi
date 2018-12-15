@@ -33,6 +33,9 @@ namespace QuanLiDoChoi.Controllers
             return View();
         }
 
+
+
+        //Quan Li Tai Khoan
         public async Task<IActionResult> TaiKhoan()
         {
 
@@ -81,5 +84,8 @@ namespace QuanLiDoChoi.Controllers
             return RedirectToAction("TaiKhoan");
         }
 
+
+        //Quan li san pham
+       
     }
 }

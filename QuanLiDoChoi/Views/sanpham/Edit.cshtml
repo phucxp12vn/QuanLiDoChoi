@@ -1,0 +1,72 @@
+﻿@model sanpham.api.Models.Sanpham
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Sanpham</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaSp" class="control-label">Mã SP</label>
+                <input asp-for="MaSp" class="form-control"  readonly/>
+                <span asp-validation-for="MaSp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenSp" class="control-label">Tên SP</label>
+                <input asp-for="TenSp" class="form-control" />
+                <span asp-validation-for="TenSp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoLuongTon" class="control-label">Số lượng tồn</label>
+                <input asp-for="SoLuongTon" class="form-control" />
+                <span asp-validation-for="SoLuongTon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GiaBanLe" class="control-label">Giá bán</label>
+                <input asp-for="GiaBanLe" class="form-control" />
+                <span asp-validation-for="GiaBanLe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="XuatSu" class="control-label">Xuất xứ</label>
+                <input asp-for="XuatSu" class="form-control" />
+                <span asp-validation-for="XuatSu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MotaSp" class="control-label">Mô tả sản phẩm</label>
+                <textarea asp-for="MotaSp" class="form-control" rows="4" cols="4">.</textarea>
+                <span asp-validation-for="MotaSp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hinhanh" class="control-label">Hình ảnh</label>
+                <input asp-for="Hinhanh" class="form-control" />
+                <span asp-validation-for="Hinhanh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hinhanhindex" class="control-label">Hình ảnh index</label>
+                <input asp-for="Hinhanhindex" class="form-control" />
+                <span asp-validation-for="Hinhanhindex" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:flex" >
+                <label asp-for="TrangThai" class="control-label">Trạng thái</label>
+                <input asp-for="TrangThai" type="radio" class="form-control" value="1"  />Còn Bán
+                <input asp-for="TrangThai" type="radio" class="form-control" value="0" />Ngừng Bán
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

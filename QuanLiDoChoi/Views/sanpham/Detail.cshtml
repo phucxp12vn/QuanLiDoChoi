@@ -1,0 +1,87 @@
+﻿@model sanpham.api.Models.Sanpham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Sản phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Mã Sản Phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSp)
+        </dd>
+
+        <br />
+
+        <dt>
+            Tên Sản Phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSp)
+        </dd>
+
+        <br />
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <br />
+
+        <dt>
+            Giá Bán Lẻ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBanLe)
+        </dd>
+
+        <br />
+
+        <dt>
+            Xuất Xứ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XuatSu)
+        </dd>
+
+        <br />
+
+        <dt>
+            Mô Tả Sản Phẩm:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotaSp)
+        </dd>
+
+        <br />
+
+        <dt>
+            Hình ảnh Sản Phẩm:
+        </dt>
+
+        <dd>
+            <img src=@Html.DisplayFor(model => model.Hinhanhindex) alt="Sample Image" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit",  new { id = Model.MaSp })';return false;"><b> Sửa</b></button>&nbsp&nbsp&nbsp&nbsp
+    <button class="btn btn-default" onclick="location.href='@Url.Action("Index")';return false;"><b>Trở lại</b></button>&nbsp&nbsp&nbsp&nbsp
+</p>
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<sanpham.api.Models.Sanpham>
+
+@{
+    ViewData["Title"] = "SanPham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr style="text-align:center">
+            <th>
+                Mã SP
+            </th>
+            <th style="width:35%">
+                Tên SP
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th>
+                Giá bán
+            </th>
+            <th>
+                Xuất xứ
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaBanLe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.XuatSu)
+                </td>
+                <td align="center">
+                    <button class="btn btn-success" onclick="location.href='@Url.Action("Detail",  new { id = item.MaSp })';return false;">Xem</button>&nbsp&nbsp&nbsp&nbsp
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit",  new { id = item.MaSp })';return false;">Sửa</button>&nbsp&nbsp&nbsp&nbsp
+                    <button class="btn btn-danger" onclick="location.href='@Url.Action("Delete",  new { id = item.MaSp })';return false;">Xóa</button>&nbsp&nbsp&nbsp&nbsp
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

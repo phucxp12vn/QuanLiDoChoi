@@ -86,7 +86,7 @@ using QuanLiDoChoi.Models;
             ");
             EndContext();
             BeginContext(588, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "afe40db558314fd1b5b69ec3958f70ac", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "adb49eafe583448bad3b84b01e946c44", async() => {
                 BeginContext(617, 176, true);
                 WriteLiteral("\r\n                <input type=\"search\" id=\"miniKeyword\" name=\"keyword\" placeholder=\"Tên sản phẩm...\" required=\"\">\r\n                <input type=\"submit\" value=\" \">\r\n            ");
                 EndContext();
@@ -111,7 +111,7 @@ using QuanLiDoChoi.Models;
             WriteLiteral("\r\n        </div>\r\n    </div>\r\n    ");
             EndContext();
             BeginContext(834, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c62f1a0391b419fb5061f6861a1d3fa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b818bb46545b4a56b4b437a224cba56b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -129,7 +129,7 @@ using QuanLiDoChoi.Models;
             WriteLiteral("\r\n    ");
             EndContext();
             BeginContext(895, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf741faadfa44ffca0fe03a4c14c467d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7657b7506a5d49a99252f8476492b299", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -147,7 +147,7 @@ using QuanLiDoChoi.Models;
             WriteLiteral("\r\n    ");
             EndContext();
             BeginContext(949, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9c8cf3a6a8149d9bc0e51004b0e3cb5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eea29d90e3534964bb21fcb83d2ebf39", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -235,7 +235,7 @@ WriteAttributeValue("", 2465, Url.Action("Detail","Product",new { id = sp.MaSp }
             WriteLiteral(" VNĐ</span>\r\n\r\n                                        </div>\r\n                                        <div class=\"snipcart-details top_brand_home_details item_add single-item hvr-outline-out\">\r\n                                            ");
             EndContext();
             BeginContext(2986, 322, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7e98c2ce8e0341d382609869cf8f146f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cef350b4cb8845ab89bac98211483082", async() => {
                 BeginContext(2992, 136, true);
                 WriteLiteral("\r\n                                                <fieldset>\r\n\r\n                                                    <input type=\"button\"");
                 EndContext();

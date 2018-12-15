@@ -44,3 +44,6 @@ P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\Product.g.
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Index.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutAdmin.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Admin\TaiKhoan.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Index.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Detail.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Edit.g.cshtml.cs
