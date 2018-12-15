@@ -14,11 +14,7 @@ namespace QuanLiDoChoi.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly QL_TaiKhoanContext _context;
-        //static readonly string address = Environment.GetEnvironmentVariable("KhachHangUrl").ToString();
-        //static Uri apiAddress = new Uri(address);
-        //static readonly string address1 = Environment.GetEnvironmentVariable("SanPhamUrl").ToString();
-        //static Uri apiAddress1 = new Uri(address1);
+
 
         static HttpClient GetAPI(string myChoice)
         {

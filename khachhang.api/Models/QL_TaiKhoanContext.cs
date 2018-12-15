@@ -21,8 +21,7 @@ namespace khachhang.api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=172.18.43.84,1433;Database=QL_TaiKhoan;User ID=sa;Password=Password1;");
+
             }
         }
 

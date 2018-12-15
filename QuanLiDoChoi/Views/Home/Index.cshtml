@@ -5,46 +5,79 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="ads-grid">
+    <!-- tittle heading -->
+    <h3 class="tittle-w3l">
+        Sản phẩm của shop
+        <span class="heading-style">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+    </h3>
+    <!-- //tittle heading -->
+    <!-- product left -->
+    <div class="side-bar col-md-3">
+        <div class="search-hotel">
+            <h3 class="agileits-sear-head">Tìm kiếm sản phẩm</h3>
+            <form action="" method="get">
+                <input type="search" id="miniKeyword" name="keyword" placeholder="Tên sản phẩm..." required="">
+                <input type="submit" value=" ">
+            </form>
+        </div>
+    </div>
+    <script src="~/Assets/js/jquery-2.1.4.min.js"></script>
+    <script src="~/Assets/js/jquery-ui.js"></script>
+    <script src="~/Assets/js/controller/miniSearch.js"></script>
+    <!-- //product left -->
+    <!-- product right -->
+    <div class="agileinfo-ads-display col-md-9">
+        <div class="wrapper">
+            <!-- first section (nuts) -->
+            <div class="product-sec1">
+                @foreach (var sp in Model)
+                {
+                    var quantity = (int)1;
+                    var url = "Product/Detail/" + sp.MaSp;
+                    var urlcart = "Cart/AddItem?masp=" + sp.MaSp + "&soluong=" + quantity;
+                        <div class="col-md-4 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="@sp.Hinhanhindex" alt="">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="@Url.Action("Detail","Product",new { id = sp.MaSp })" class="link-product-add-cart">Xem nhanh</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MaSp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenSp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SoLuongTon)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GiaBanLe)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaSp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TenSp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SoLuongTon)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GiaBanLe)
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4>
+                                            <a href="@Url.Action("Detail","Product",new { id = sp.MaSp })">@sp.TenSp</a>
+                                        </h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@sp.GiaBanLe.ToString() VNĐ</span>
+
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                            <form>
+                                                <fieldset>
+
+                                                    <input type="button" onclick="them('@sp.MaSp')" value="Thêm vào giỏ" class="button" />
+                                                </fieldset>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                }
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //product right -->
+</div>
