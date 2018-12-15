@@ -4637,6 +4637,20 @@
         "runtime": {
           "bin/placeholder/khachhang.api.dll": {}
         }
+      },
+      "sanpham.api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
+        },
+        "compile": {
+          "bin/placeholder/sanpham.api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sanpham.api.dll": {}
+        }
       }
     }
   },
@@ -12251,6 +12265,11 @@
       "type": "project",
       "path": "../khachhang.api/khachhang.api.csproj",
       "msbuildProject": "../khachhang.api/khachhang.api.csproj"
+    },
+    "sanpham.api/1.0.0": {
+      "type": "project",
+      "path": "../sanpham.api/sanpham.api.csproj",
+      "msbuildProject": "../sanpham.api/sanpham.api.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12260,7 +12279,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
       "Newtonsoft.Json >= 12.0.1",
       "System.Net.Http >= 4.3.4",
-      "khachhang.api >= 1.0.0"
+      "khachhang.api >= 1.0.0",
+      "sanpham.api >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12297,6 +12317,9 @@
           "projectReferences": {
             "P:\\QuanLiDoChoi\\khachhang.api\\khachhang.api.csproj": {
               "projectPath": "P:\\QuanLiDoChoi\\khachhang.api\\khachhang.api.csproj"
+            },
+            "P:\\QuanLiDoChoi\\sanpham.api\\sanpham.api.csproj": {
+              "projectPath": "P:\\QuanLiDoChoi\\sanpham.api\\sanpham.api.csproj"
             }
           }
         }

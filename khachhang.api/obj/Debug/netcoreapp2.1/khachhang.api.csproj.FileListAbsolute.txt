@@ -11,3 +11,4 @@ P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.AssemblyInfo
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.RazorTargetAssemblyInfo.cache
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.dll
 P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.pdb
+P:\QuanLiDoChoi\khachhang.api\obj\Debug\netcoreapp2.1\khachhang.api.csprojAssemblyReference.cache

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\khachhang.api\khachhang.api.csproj" />
+    <ProjectReference Include="..\sanpham.api\sanpham.api.csproj" />
   </ItemGroup>
 
 </Project>

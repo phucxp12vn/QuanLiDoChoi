@@ -29,7 +29,8 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
           "Newtonsoft.Json": "12.0.1",
           "System.Net.Http": "4.3.4",
-          "khachhang.api": "1.0.0"
+          "khachhang.api": "1.0.0",
+          "sanpham.api": "1.0.0"
         },
         "runtime": {
           "QuanLiDoChoi.dll": {}
@@ -681,6 +682,18 @@
         },
         "compile": {
           "khachhang.api.dll": {}
+        }
+      },
+      "sanpham.api/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
+        },
+        "runtime": {
+          "sanpham.api.dll": {}
+        },
+        "compile": {
+          "sanpham.api.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3824,6 +3837,11 @@
       "hashPath": "system.net.primitives.4.3.0.nupkg.sha512"
     },
     "khachhang.api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "sanpham.api/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

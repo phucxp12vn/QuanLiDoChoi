@@ -38,3 +38,5 @@ P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Create
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Edit.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\dangnhap.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\dangky.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\sanpham.api.dll
+P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\sanpham.api.pdb

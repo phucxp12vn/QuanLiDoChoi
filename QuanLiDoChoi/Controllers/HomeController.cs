@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using Newtonsoft.Json;
 using khachhang.api.Models;
+using sanpham.api.Models;
 using Microsoft.AspNetCore.Http;
 
 
@@ -14,29 +15,47 @@ namespace QuanLiDoChoi.Controllers
     public class HomeController : Controller
     {
         //private readonly QL_TaiKhoanContext _context;
-        static HttpClient client = new HttpClient();
-        static readonly string address = Environment.GetEnvironmentVariable("KhachHangUrl").ToString();
-        static Uri apiAddress = new Uri(address);
+        //static readonly string address = Environment.GetEnvironmentVariable("KhachHangUrl").ToString();
+        //static Uri apiAddress = new Uri(address);
+        //static readonly string address1 = Environment.GetEnvironmentVariable("SanPhamUrl").ToString();
+        //static Uri apiAddress1 = new Uri(address1);
 
-        static void GetAPI()
+        static HttpClient GetAPI(string myChoice)
         {
-            client.BaseAddress = apiAddress;
-            //client.BaseAddress = new Uri("http://172.18.32.122/"); 
-
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
+             HttpClient client = new HttpClient();
+             Uri apiAddress = new Uri(Environment.GetEnvironmentVariable(myChoice).ToString());
+             client.BaseAddress = apiAddress;
+             client.DefaultRequestHeaders.Accept.Clear();
+             client.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            return client;
 
         }
 
         const string path = "api/taikhoans";
+        const string path1 = "api/sanphams";
 
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-           
-            return View();
+
+
+            List<Sanpham> sanpham = new List<Sanpham>();
+
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync(path1);
+
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
+
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString);
+
+                sanpham = deserialized.ToList();
+            }
+
+            return View(sanpham);
         }
 
         //Dang ky moi tai khoan
@@ -49,12 +68,10 @@ namespace QuanLiDoChoi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> dangky([Bind("TaiKhoan1,HoTen,MatKhau,MatKhauXacNhan,Email,GioiTinh,NgaySinh,Sdt,DiaChi")] TaikhoanDK taikhoan)
         {
-            if (!apiAddress.Equals(client.BaseAddress))
-            {
-                GetAPI();
-            }
+
             if (ModelState.IsValid)
             {
+                HttpClient client = GetAPI("KhachHangUrl");
                 HttpResponseMessage respond = await client.GetAsync($"{path}/{taikhoan.TaiKhoan1}");
 
                 if (respond.IsSuccessStatusCode)
@@ -93,20 +110,16 @@ namespace QuanLiDoChoi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> dangnhap([Bind("TaiKhoan1,MatKhau")] Taikhoan taikhoan)
         {
-            if (!apiAddress.Equals(client.BaseAddress))
-            {
-                GetAPI();
-            }
 
             Taikhoan taiKhoanGetFromAPI = null;
 
-            HttpResponseMessage respond = await client.GetAsync($"{path}/{taikhoan.TaiKhoan1}");
+            HttpResponseMessage respond = await GetAPI("KhachHangUrl").GetAsync($"{path}/{taikhoan.TaiKhoan1}");
             ViewBag.Name = HttpContext.Session.GetString("abc");
 
 
             if (respond.IsSuccessStatusCode)
             {
-                // Gán dữ liệu API đọc được
+                // Gán dữ liệu API đọc đượcs
                 taiKhoanGetFromAPI = await respond.Content.ReadAsAsync<Taikhoan>();
                 if (taikhoan.MatKhau == taiKhoanGetFromAPI.MatKhau)
                 {
