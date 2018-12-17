@@ -27,7 +27,19 @@ services:
     depends_on:
       - sql.data
 
-
+  donhang.api:
+    image: ${DOCKER_REGISTRY}donhangapi
+    build:
+      context: .
+      dockerfile: donhang.api\Dockerfile
+    environment:
+      - ConnectionString=Server=sql.data;Initial Catalog=QL_DonHang;User Id=sa;Password=Password1
+    ports:
+      - "8003:80"
+    restart: on-failure
+    depends_on:
+      - sql.data
+  
 
   quanlidochoi:
     image: ${DOCKER_REGISTRY}quanlidochoi
@@ -37,12 +49,15 @@ services:
     environment:
       - KhachHangUrl=http://khachhang.api
       - SanPhamUrl=http://sanpham.api
+      - DonHangUrl=http://donhang.api
     ports:
       - "8000:80"
     restart: on-failure
     depends_on:
       - khachhang.api
       - sanpham.api
+      - donhang.api
+
 
 
   sql.data:
@@ -54,3 +69,4 @@ services:
       - ACCEPT_EULA=Y
 
  
+  

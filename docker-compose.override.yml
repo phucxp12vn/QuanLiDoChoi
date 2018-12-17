@@ -19,9 +19,16 @@ services:
     ports:
       - "80"
 
+  donhang.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
 networks:
   default:
     external:
       name: nat
+
 
 

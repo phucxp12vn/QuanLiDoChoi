@@ -3,6 +3,21 @@ networks:
     external:
       name: nat
 services:
+  donhang.api:
+    build:
+      context: P:\QuanLiDoChoi
+      dockerfile: donhang.api\Dockerfile
+    depends_on:
+    - sql.data
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: Server=sql.data;Initial Catalog=QL_DonHang;User Id=sa;Password=Password1
+    image: donhangapi
+    ports:
+    - published: 8003
+      target: 80
+    - target: 80
+    restart: on-failure
   khachhang.api:
     build:
       context: P:\QuanLiDoChoi
@@ -23,10 +38,12 @@ services:
       context: P:\QuanLiDoChoi
       dockerfile: QuanLiDoChoi\Dockerfile
     depends_on:
+    - donhang.api
     - khachhang.api
     - sanpham.api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      DonHangUrl: http://donhang.api
       KhachHangUrl: http://khachhang.api
       SanPhamUrl: http://sanpham.api
     image: quanlidochoi

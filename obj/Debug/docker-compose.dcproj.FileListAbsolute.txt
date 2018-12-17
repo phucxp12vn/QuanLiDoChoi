@@ -9,3 +9,5 @@ P:\QuanLiDoChoi\bin\Debug\QuanLiDoChoi.dll
 P:\QuanLiDoChoi\bin\Debug\QuanLiDoChoi.pdb
 P:\QuanLiDoChoi\bin\Debug\sanpham.api.dll
 P:\QuanLiDoChoi\bin\Debug\sanpham.api.pdb
+P:\QuanLiDoChoi\bin\Debug\donhang.api.dll
+P:\QuanLiDoChoi\bin\Debug\donhang.api.pdb

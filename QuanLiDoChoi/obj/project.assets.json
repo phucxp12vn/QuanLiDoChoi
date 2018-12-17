@@ -4645,6 +4645,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "donhang.api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
+        },
+        "compile": {
+          "bin/placeholder/donhang.api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/donhang.api.dll": {}
+        }
+      },
       "khachhang.api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -12329,6 +12343,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "donhang.api/1.0.0": {
+      "type": "project",
+      "path": "../donhang.api/donhang.api.csproj",
+      "msbuildProject": "../donhang.api/donhang.api.csproj"
+    },
     "khachhang.api/1.0.0": {
       "type": "project",
       "path": "../khachhang.api/khachhang.api.csproj",
@@ -12349,6 +12368,7 @@
       "PagedList.Core >= 1.17.4",
       "PagedList.Core.Mvc >= 1.2.0",
       "System.Net.Http >= 4.3.4",
+      "donhang.api >= 1.0.0",
       "khachhang.api >= 1.0.0",
       "sanpham.api >= 1.0.0"
     ]
@@ -12385,6 +12405,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "P:\\QuanLiDoChoi\\donhang.api\\donhang.api.csproj": {
+              "projectPath": "P:\\QuanLiDoChoi\\donhang.api\\donhang.api.csproj"
+            },
             "P:\\QuanLiDoChoi\\khachhang.api\\khachhang.api.csproj": {
               "projectPath": "P:\\QuanLiDoChoi\\khachhang.api\\khachhang.api.csproj"
             },

@@ -27,8 +27,17 @@ namespace donhang.api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            var connection = @"Server=172.18.36.51,1433;Database=QL_DonHang;User ID=sa;Password=Password1;ConnectRetryCount=0";
-            services.AddDbContext<QL_DonHangContext>(options => options.UseSqlServer(connection));
+            var connString = Environment.GetEnvironmentVariable("ConnectionString");
+            services.AddDbContext<QL_DonHangContext>(options =>
+            {
+                options.UseSqlServer(connString, sqlServerOptionsAction: sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure(
+                    maxRetryCount: 10,
+                    maxRetryDelay: TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null);
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

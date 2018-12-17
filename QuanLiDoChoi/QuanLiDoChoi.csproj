@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\donhang.api\donhang.api.csproj" />
     <ProjectReference Include="..\khachhang.api\khachhang.api.csproj" />
     <ProjectReference Include="..\sanpham.api\sanpham.api.csproj" />
   </ItemGroup>

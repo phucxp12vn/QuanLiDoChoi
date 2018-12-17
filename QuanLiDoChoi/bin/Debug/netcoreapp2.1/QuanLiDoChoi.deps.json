@@ -31,6 +31,7 @@
           "PagedList.Core": "1.17.4",
           "PagedList.Core.Mvc": "1.2.0",
           "System.Net.Http": "4.3.4",
+          "donhang.api": "1.0.0",
           "khachhang.api": "1.0.0",
           "sanpham.api": "1.0.0"
         },
@@ -697,6 +698,18 @@
           "Microsoft.NETCore.Targets": "2.1.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Handles": "4.3.0"
+        }
+      },
+      "donhang.api/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
+        },
+        "runtime": {
+          "donhang.api.dll": {}
+        },
+        "compile": {
+          "donhang.api.dll": {}
         }
       },
       "khachhang.api/1.0.0": {
@@ -3878,6 +3891,11 @@
       "sha512": "sha512-HKXiyEA7gc6zauFvexiaAxeSdrpVGgTHLEJLgP6Wiw1s1L1p8X+3T7AizoV6fGLB9fY+4nzCghbfuL0MNtI/Ew==",
       "path": "system.net.primitives/4.3.0",
       "hashPath": "system.net.primitives.4.3.0.nupkg.sha512"
+    },
+    "donhang.api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "khachhang.api/1.0.0": {
       "type": "project",
