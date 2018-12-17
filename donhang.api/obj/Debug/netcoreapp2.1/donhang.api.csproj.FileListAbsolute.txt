@@ -1,0 +1,14 @@
+P:\QuanLiDoChoi\donhang.api\bin\Debug\netcoreapp2.1\donhang.api.deps.json
+P:\QuanLiDoChoi\donhang.api\bin\Debug\netcoreapp2.1\donhang.api.runtimeconfig.json
+P:\QuanLiDoChoi\donhang.api\bin\Debug\netcoreapp2.1\donhang.api.runtimeconfig.dev.json
+P:\QuanLiDoChoi\donhang.api\bin\Debug\netcoreapp2.1\donhang.api.dll
+P:\QuanLiDoChoi\donhang.api\bin\Debug\netcoreapp2.1\donhang.api.pdb
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.csproj.CoreCompileInputs.cache
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.RazorAssemblyInfo.cache
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.RazorAssemblyInfo.cs
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.AssemblyInfoInputs.cache
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.AssemblyInfo.cs
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.RazorTargetAssemblyInfo.cache
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.dll
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.pdb
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.csprojAssemblyReference.cache
