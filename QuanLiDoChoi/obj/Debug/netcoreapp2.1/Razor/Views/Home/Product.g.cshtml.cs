@@ -236,7 +236,7 @@ WriteAttributeValue("", 1188, Model.Hinhanh, 1188, 14, false);
                     ");
             EndContext();
             BeginContext(3172, 229, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "162bf5e903e24e2cb5bc0cc0173fe2a7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3a40fc4a42d47adb0b9a89a2edb0ada", async() => {
                 BeginContext(3178, 88, true);
                 WriteLiteral("\r\n                        <fieldset>\r\n\r\n                            <input type=\"button\"");
                 EndContext();

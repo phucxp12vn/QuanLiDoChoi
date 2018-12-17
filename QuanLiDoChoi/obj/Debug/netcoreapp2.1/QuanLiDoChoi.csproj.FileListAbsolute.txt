@@ -32,10 +32,6 @@ P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.csproj.CopyCom
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\QuanLiDoChoi.csprojAssemblyReference.cache
 P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\khachhang.api.dll
 P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\khachhang.api.pdb
-P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Index.g.cshtml.cs
-P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Details.g.cshtml.cs
-P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Create.g.cshtml.cs
-P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\Edit.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\dangnhap.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\dangky.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\sanpham.api.dll
@@ -43,8 +39,8 @@ P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\sanpham.api.pdb
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\Product.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Index.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutAdmin.g.cshtml.cs
-P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Admin\TaiKhoan.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Index.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Detail.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Edit.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\sanpham\Create.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\taikhoan\index.g.cshtml.cs

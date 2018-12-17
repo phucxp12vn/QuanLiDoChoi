@@ -66,7 +66,7 @@ namespace QuanLiDoChoi.Controllers
                 // Gán dữ liệu API đọc được
                 var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
 
-                var count = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString).Where(x => x.TrangThai == "1").Count();
+                var count = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString).Count();
                 sp.MaSp = GetMaSp((int)count); 
             }
 
@@ -153,6 +153,29 @@ namespace QuanLiDoChoi.Controllers
             }
 
             return View(sanpham);
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            HttpClient client = GetAPI("SanPhamUrl");
+            HttpResponseMessage respond = await client.GetAsync($"{pathSP}/{id}");
+
+            if (!respond.IsSuccessStatusCode)
+            {
+                ModelState.AddModelError("", "Mã tài khoản không tồn tại!");
+            }
+            else
+            {
+                Sanpham sanpham = await respond.Content.ReadAsAsync<Sanpham>();
+                sanpham.TrangThai = "0";
+                HttpResponseMessage result = await client.PutAsJsonAsync($"{pathSP}/{id}", sanpham);
+                if (!result.IsSuccessStatusCode)
+                {
+                    ModelState.AddModelError("", "Quá trình xóa đã thất bại!");
+                }
+            }
+
+            return RedirectToAction("Index");
         }
 
 

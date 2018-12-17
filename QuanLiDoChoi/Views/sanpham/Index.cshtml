@@ -56,10 +56,18 @@
                 <td align="center">
                     <button class="btn btn-success" onclick="location.href='@Url.Action("Detail",  new { id = item.MaSp })';return false;">Xem</button>&nbsp&nbsp&nbsp&nbsp
                     <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit",  new { id = item.MaSp })';return false;">Sửa</button>&nbsp&nbsp&nbsp&nbsp
-                    <button class="btn btn-danger" onclick="location.href='@Url.Action("Delete",  new { id = item.MaSp })';return false;">Xóa</button>&nbsp&nbsp&nbsp&nbsp
+                    <button class="btn btn-danger" onclick="notify('@item.MaSp');return false;">Xóa</button>&nbsp&nbsp&nbsp&nbsp
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
+<script type="text/javascript">
+    function notify(id) {
+        var con = confirm("Bạn có chắc chắn muốn tạm ngưng bán sản phẩm này?");
+        if (con == true) {
+            location.href = '/SanPham/Delete/' + id;
+        }
+    }
+</script>

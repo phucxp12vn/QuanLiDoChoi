@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "a0faf3e0ca6854bef71b4ae2adc93b538e212364"
+    "signature": "ad439f067ecca12db2d5620e87e3992cd64f886b"
   },
   "compilationOptions": {
     "defines": [
@@ -28,6 +28,7 @@
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
           "Newtonsoft.Json": "12.0.1",
+          "PagedList.Core.Mvc": "1.2.0",
           "System.Net.Http": "4.3.4",
           "khachhang.api": "1.0.0",
           "sanpham.api": "1.0.0"
@@ -389,6 +390,33 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "PagedList.Core/1.17.4": {
+        "runtime": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        }
+      },
+      "PagedList.Core.Mvc/1.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1",
+          "Microsoft.AspNetCore.Razor.Runtime": "2.1.1",
+          "PagedList.Core": "1.17.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/PagedList.Core.Mvc.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/PagedList.Core.Mvc.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -3695,6 +3723,20 @@
       "sha512": "sha512-/VaEPsEgj3p5YPLLxbYc6rB8gYIPf+8wCWOAlAe3l/SP0DXcefZ58uJer1ToBKIpwbPN5LkgTXtvilze5UJoYQ==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "PagedList.Core/1.17.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VvtRPtzytU+r9QVmbqZkWMf3oRPGMdGXHBD2eZDuY5Mfkkdl5cJOCEe/Wnmgrwu73UbRTQe4vu40K4rfg/FkUw==",
+      "path": "pagedlist.core/1.17.4",
+      "hashPath": "pagedlist.core.1.17.4.nupkg.sha512"
+    },
+    "PagedList.Core.Mvc/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MiXdEgIiK0HJ2p+SiwjdSLguwsntTn09hTILnnIcOwKT1GrTzpJHVzyWw36KHb9kzCm9Loz16OfHhJnJlugdqg==",
+      "path": "pagedlist.core.mvc/1.2.0",
+      "hashPath": "pagedlist.core.mvc.1.2.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",
