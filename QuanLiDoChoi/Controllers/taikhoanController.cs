@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using khachhang.api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using PagedList.Core;
 
 namespace QuanLiDoChoi.Controllers
 {
@@ -26,7 +27,7 @@ namespace QuanLiDoChoi.Controllers
         const string pathKH = "api/taikhoans";
         const string pathSP = "api/sanphams";
 
-        public async Task<IActionResult> index()
+        public async Task<IActionResult> index(int page = 1)
         {
 
 
@@ -39,14 +40,14 @@ namespace QuanLiDoChoi.Controllers
                 // Gán dữ liệu API đọc được
                 var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
 
-                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Taikhoan>>(taikhoanJsonString).Where(x => x.Flag == 1);
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Taikhoan>>(taikhoanJsonString).Where(x=>x.Flag == 1);
 
-                //taikhoan = (List<Taikhoan>)deserialized.ToList().Where(x=> x.Flag == 1);
-                taikhoan = deserialized.ToList();
-
+                //taikhoan = (List<Taikhoan>)deserialized.ToList().Where(x=> x.Flag == 1);    
+                 taikhoan = deserialized.ToList();
+               
             }
 
-            return View(taikhoan);
+            return View(taikhoan.AsQueryable().ToPagedList(page, 7));
         }
 
 

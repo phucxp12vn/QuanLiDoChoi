@@ -1,4 +1,5 @@
-﻿@model IEnumerable<sanpham.api.Models.Sanpham>
+﻿@model PagedList.Core.IPagedList<sanpham.api.Models.Sanpham>
+@using PagedList.Core.Mvc;
 
 @{
     ViewData["Title"] = "SanPham";
@@ -62,6 +63,8 @@
         }
     </tbody>
 </table>
+
+<pager class="pager-container" list="@Model" options="@PagedListRenderOptions.TwitterBootstrapPager" asp-action="Index" asp-controller="sanpham" />
 
 <script type="text/javascript">
     function notify(id) {

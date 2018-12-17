@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using khachhang.api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using PagedList.Core;
 using sanpham.api.Models;
 
 namespace QuanLiDoChoi.Controllers
@@ -27,7 +28,7 @@ namespace QuanLiDoChoi.Controllers
         const string pathKH = "api/taikhoans";
         const string pathSP = "api/sanphams";
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
 
 
@@ -46,7 +47,7 @@ namespace QuanLiDoChoi.Controllers
 
             }
 
-            return View(sanpham);
+            return View(sanpham.AsQueryable().ToPagedList(page, 7));
         }
 
         private string GetMaSp(int count)

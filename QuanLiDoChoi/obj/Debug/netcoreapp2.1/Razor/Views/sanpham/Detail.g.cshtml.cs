@@ -24,7 +24,7 @@ using QuanLiDoChoi.Models;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"28e6c0788933ccdfd646cfa1c22eaa9f87720adf", @"/Views/sanpham/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"33de17273e06be94d75b9deb74bf4aa5771b4dad", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bf3729f3a28b8e9849ca4d4bed21b47c69242569", @"/Views/_ViewImports.cshtml")]
     public class Views_sanpham_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<sanpham.api.Models.Sanpham>
     {
         #pragma warning disable 1998

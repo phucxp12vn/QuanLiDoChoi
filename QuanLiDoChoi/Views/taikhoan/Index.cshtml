@@ -1,4 +1,5 @@
-﻿@model IEnumerable<khachhang.api.Models.Taikhoan>
+﻿@model PagedList.Core.IPagedList<khachhang.api.Models.Taikhoan>
+@using PagedList.Core.Mvc;
 @{
     ViewData["Title"] = "TaiKhoan";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -86,6 +87,7 @@
         }
     </tbody>
 </table>
+<pager class="pager-container" list="@Model" options="@PagedListRenderOptions.TwitterBootstrapPager" asp-action="Index" asp-controller="taikhoan" />
 
 <script type="text/javascript">
     function notify(id) {
