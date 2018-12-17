@@ -1,0 +1,107 @@
+﻿@model sanpham.api.Models.Sanpham
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Scripts
+    {
+    <script type="text/javascript">
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgDisplay')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150);
+                };
+                var _choose_path = document.getElementById("upload").value;
+                var filepath = "/Assets/images" + _choose_path.replace("C:\\fakepath\\", "/");
+                document.getElementById("textfile").value = filepath;
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Sản phẩm</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("size", "155")
+        @Html.Hidden("sizedetail", "800")
+        <div class="form-group">
+            <label class = "control-label col-md-2">Mã SP</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaSp, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = "width:50%" } })
+                @Html.ValidationMessageFor(model => model.MaSp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class = "control-label col-md-2">Tên SP</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenSp, new { htmlAttributes = new { @class = "form-control", @style = "width:50%" } })
+                @Html.ValidationMessageFor(model => model.TenSp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class = "control-label col-md-2">Giá Bán</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GiaBanLe, new { htmlAttributes = new { @class = "form-control", @style = "width:50%" } })
+                @Html.ValidationMessageFor(model => model.GiaBanLe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class = "control-label col-md-2">Xuất Xứ</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.XuatSu, new { htmlAttributes = new { @class = "form-control", @style = "width:50%" } })
+                @Html.ValidationMessageFor(model => model.XuatSu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class = "control-label col-md-2">Mô Tả</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MotaSp, new { htmlAttributes = new { @class = "form-control", @style = "width:50%" } })
+                @Html.ValidationMessageFor(model => model.MotaSp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class = "control-label col-md-2">Hình Ảnh Đại Diện</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Hinhanhindex, new { htmlAttributes = new { @class = "form-control", @id = "textfile", @readonly = "readonly", @style = "width:50%" } })
+                <br />
+                <input type="file" name="file" id="upload" onchange="readURL(this);" />
+                @Html.ValidationMessageFor(model => model.Hinhanhindex, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <img src=@Html.DisplayFor(model => model.Hinhanhindex) alt="Sample Image" width="155px" style="margin-left:17%" id="imgDisplay" />
+        <br />
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo mới" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <button class="btn btn-default" onclick="location.href='@Url.Action("Index")';return false;"><b>Trở lại</b></button>&nbsp&nbsp&nbsp&nbsp
+</div>
+<br />
+

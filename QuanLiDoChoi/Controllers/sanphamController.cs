@@ -49,6 +49,47 @@ namespace QuanLiDoChoi.Controllers
             return View(sanpham);
         }
 
+        private string GetMaSp(int count)
+        {
+            if (count < 9) return "SP00" + ++count;
+            else if (count < 99) return "SP0" + ++count;
+            else return "SP" + ++count;
+        }
+        public async Task<IActionResult> Create()
+        {
+
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync(pathSP);
+            Sanpham sp = new Sanpham();
+       
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
+
+                var count = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString).Where(x => x.TrangThai == "1").Count();
+                sp.MaSp = GetMaSp((int)count); 
+            }
+
+            return View(sp);
+        }
+
+        [HttpPost(Name = "Create a new one")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Sanpham sanpham)
+        {
+            if (ModelState.IsValid)
+            {
+                sanpham.SoLuongTon = 0;
+                sanpham.TrangThai = "1";
+                HttpResponseMessage respond = await GetAPI("SanPhamUrl").PostAsJsonAsync(pathSP, sanpham);
+                respond.EnsureSuccessStatusCode();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(sanpham);
+        }
+
 
         public async Task<IActionResult> Detail(string id)
         {
@@ -77,6 +118,7 @@ namespace QuanLiDoChoi.Controllers
             }
 
         }
+
 
         // GET: KhachHangs/Edit/5
         [HttpGet(Name = "Get an content to edit")]
