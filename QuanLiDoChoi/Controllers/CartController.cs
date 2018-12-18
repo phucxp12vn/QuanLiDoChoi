@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using QuanLiDoChoi.Models;
 using sanpham.api.Models;
 
@@ -89,6 +90,46 @@ namespace QuanLiDoChoi.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public JsonResult Update(string id)
+        {
+            //JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString);
+            var listSession = JsonConvert.DeserializeObject<List<CartItem>>(id);
+            var Sessioncart = HttpContext.Session.GetComplexData<List<CartItem>>(CartSession);
+            foreach (var item in Sessioncart)
+            {
+                var jsonItem = listSession.SingleOrDefault(x => x.SP.MaSp == item.SP.MaSp);
+                if(jsonItem != null)
+                {
+                    item.SoLuong = jsonItem.SoLuong;
+                }
+            }
+            HttpContext.Session.SetComplexData(CartSession, Sessioncart);
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+        public JsonResult DeleteAll()
+        {
+            HttpContext.Session.Remove(CartSession);
+
+            return Json(new {
+                status = true
+            });
+        }
+
+        public JsonResult Delete(string id)
+        {
+            var cart = HttpContext.Session.GetComplexData<List<CartItem>>(CartSession);
+            cart.RemoveAll(x => x.SP.MaSp == id);
+            HttpContext.Session.SetComplexData(CartSession, cart);
+            return Json(new
+            {
+                status = true
+            });
         }
     }
 }

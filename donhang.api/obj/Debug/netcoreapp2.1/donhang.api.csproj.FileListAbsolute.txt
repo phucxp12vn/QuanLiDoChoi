@@ -11,3 +11,4 @@ P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.AssemblyInfo.cs
 P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.RazorTargetAssemblyInfo.cache
 P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.dll
 P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.pdb
+P:\QuanLiDoChoi\donhang.api\obj\Debug\netcoreapp2.1\donhang.api.csprojAssemblyReference.cache

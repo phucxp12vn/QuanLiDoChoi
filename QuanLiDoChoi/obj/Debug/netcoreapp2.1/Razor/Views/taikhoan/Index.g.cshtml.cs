@@ -254,7 +254,7 @@ WriteAttributeValue("", 2296, item.TaiKhoan1, 2296, 15, false);
             WriteLiteral("    </tbody>\r\n</table>\r\n");
             EndContext();
             BeginContext(2569, 148, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("pager", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8688242e84304f45b8382863413e2e27", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("pager", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cb08c480123f4446bf09da1117118dd9", async() => {
             }
             );
             __PagedList_Core_Mvc_PagerTagHelper = CreateTagHelper<global::PagedList.Core.Mvc.PagerTagHelper>();

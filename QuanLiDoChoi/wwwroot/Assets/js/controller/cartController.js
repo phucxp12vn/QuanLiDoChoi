@@ -16,36 +16,29 @@
         $('#btnPayment').off('click').on('click', function () {
             window.location.href = "/Cart/Payment";
         });
-        $('#btnUpdate').off('click').on('click', function () {
+
+        $('#btnUpdate').off('click').on('click', function (e) {
+            e.preventDefault();
             var listProduct = $('.txtQuantity');
             var cartList = [];
             $.each(listProduct, function (i, item) {
                 cartList.push({
-                    soluong: $(item).val(),
-                    SANPHAM: {
-                        MaSP: $(item).data('id')
-                    }
+                    SP: {
+                        MaSp: $(item).data('id')
+                    },
+                    SoLuong: $(item).val()
                 });
             });
-
             $.ajax({
+                data: { id: JSON.stringify(cartList) },
                 url: '/Cart/Update',
-                data: { cartModel: JSON.stringify(cartList) },
                 dataType: 'json',
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        //alert("Đã update giỏ hàng");
-                        window.location.href = "/Cart/IndexCart";
+
+                        window.location.href = "/Cart/Index";
                     }
-                    if (res.status == false) {
-
-                        alert("Số lượng không đủ");
-                        window.location.href = "/Cart/IndexCart";
-                        
-                    }
-
-
                 }
             })
         });
@@ -59,7 +52,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/Cart/IndexCart";
+                        window.location.href = "/Cart/Index";
                     }
                 }
             })
@@ -75,11 +68,13 @@
                 success: function (res) {
                     if (res.status == true) {
 
-                        window.location.href = "/Cart/IndexCart";
+                        window.location.href = "/Cart/Index";
                     }
                 }
             })
         });
+
+
     }
 }
 cart.init();
