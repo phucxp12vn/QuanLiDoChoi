@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace sanpham.api.Models
 {
@@ -14,5 +15,7 @@ namespace sanpham.api.Models
         public string Hinhanh { get; set; }
         public string Hinhanhindex { get; set; }
         public string TrangThai { get; set; }
+
+      
     }
 }

@@ -39,7 +39,7 @@
                 {
                     var quantity = (int)1;
                     var url = "Product/" + sp.MaSp;
-                    var urlcart = "Cart/AddItem?masp=" + sp.MaSp + "&soluong=" + quantity;
+                    var urlcart = "/Cart/AddItem?masp=" + sp.MaSp + "&soluong=" + quantity;
                         <div class="col-md-4 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
@@ -64,7 +64,7 @@
                                             <form>
                                                 <fieldset>
 
-                                                    <input type="button" onclick="them('@sp.MaSp')" value="Thêm vào giỏ" class="button" />
+                                                    <input type="button" onclick="notify('@sp.MaSp')" value="Thêm vào giỏ" class="button" />
                                                 </fieldset>
                                             </form>
 
@@ -81,3 +81,10 @@
     </div>
     <!-- //product right -->
 </div>
+
+<script type="text/javascript">
+    function notify(id) {        
+        location.href = '/Cart/AddItem?masp=' + id;
+        alert("Thêm vào giỏ hàng thành công.");
+    }
+</script>

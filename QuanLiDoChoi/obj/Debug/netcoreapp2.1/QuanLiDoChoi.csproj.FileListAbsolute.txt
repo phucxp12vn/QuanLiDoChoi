@@ -49,3 +49,4 @@ P:\QuanLiDoChoi\QuanLiDoChoi\bin\Debug\netcoreapp2.1\donhang.api.pdb
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\donhang\Index.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\donhang\Detail.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\demo\Index.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.g.cshtml.cs

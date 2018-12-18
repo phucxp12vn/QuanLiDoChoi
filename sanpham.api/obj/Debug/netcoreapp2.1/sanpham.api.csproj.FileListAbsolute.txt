@@ -11,3 +11,4 @@ P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.AssemblyInfo.cs
 P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.RazorTargetAssemblyInfo.cache
 P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.dll
 P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.pdb
+P:\QuanLiDoChoi\sanpham.api\obj\Debug\netcoreapp2.1\sanpham.api.csprojAssemblyReference.cache
