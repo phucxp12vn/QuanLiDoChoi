@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using donhang.api.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QuanLiDoChoi.Models;
@@ -26,6 +28,8 @@ namespace QuanLiDoChoi.Controllers
 
         const string pathKH = "api/taikhoans";
         const string pathSP = "api/sanphams";
+        const string pathDH = "api/donhangs";
+        const string pathCTDH = "api/chitietdonhangs";
         private const string CartSession = "cartSession";
 
         public IActionResult Index()
@@ -72,7 +76,7 @@ namespace QuanLiDoChoi.Controllers
                 else
                 {
                     var item = new CartItem();
-                    item.SP =(Sanpham)GetSanPhamAsync(MaSp).GetAwaiter().GetResult();
+                    item.SP = GetSanPhamAsync(MaSp).GetAwaiter().GetResult();
                     item.SoLuong = SoLuong;
                     cart.Add(item);
                 }
@@ -131,5 +135,106 @@ namespace QuanLiDoChoi.Controllers
                 status = true
             });
         }
+         
+        [HttpGet]
+        public IActionResult Payment()
+        {
+            var cart = HttpContext.Session.GetComplexData<List<CartItem>>(CartSession);
+            var userName = HttpContext.Session.GetString("userName");
+            if(userName != null && userName != "")
+            {
+                if (cart != null)
+                {
+                    return View(cart);
+                }
+                else return View();
+            }
+            else
+            {
+                return RedirectToAction("dangnhap", "home", "");
+            }
+            
+            
+        }
+
+        [HttpPost]
+        public IActionResult Payment(string mobile, string address, string email)
+        {
+            var userName = HttpContext.Session.GetString("userName");
+            if (userName != null && userName != "")
+            {
+                Donhang donhang = new Donhang();
+                donhang.NgayTao = DateTime.Now;
+                donhang.ShipAddress = address;
+                donhang.ShipMobile = mobile;
+                var maDh = GetMaDHAsync().GetAwaiter().GetResult();
+                donhang.MaDh = maDh;
+                donhang.Status = 1;
+                donhang.TaiKhoan = userName;
+                donhang.DaThanhToan = 0;
+                taoDonHangAsync(donhang);
+                //Xong tao chi tiet don hang
+                int TongTien = 0;
+                var cart = HttpContext.Session.GetComplexData<List<CartItem>>(CartSession);
+                foreach(var item in cart)
+                {
+                    Chitietdonhang chitetdh = new Chitietdonhang();
+                    chitetdh.MaDh = maDh;
+                    chitetdh.MaSp = item.SP.MaSp;
+                    chitetdh.SoLuong = item.SoLuong;
+                    chitetdh.ThanhTien = item.SP.GiaBanLe * item.SoLuong;
+                    TongTien += (int)chitetdh.ThanhTien;
+                    taoChiTietDHAsync(chitetdh);
+                }
+
+                donhang.TongTien = TongTien;
+                capNhatDonHangAsync(donhang);
+            }
+            else
+            {
+                return RedirectToAction("dangnhap","home","");
+            }
+
+            return Redirect("/ThanhCong");
+        }
+
+        private async Task<string> GetMaDHAsync()
+        {
+
+            HttpResponseMessage respond = await GetAPI("DonHangUrl").GetAsync(pathDH);
+
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
+
+                var count = JsonConvert.DeserializeObject<IEnumerable<Donhang>>(taikhoanJsonString).Count();
+
+                if (count < 9) return "SP00" + ++count;
+                else if (count < 99) return "SP0" + ++count;
+                else return "SP" + ++count;
+            }
+            else return null;
+            
+        }
+
+        public async void taoDonHangAsync(Donhang donhang)
+        {
+                HttpResponseMessage respond = await GetAPI("DonHangUrl").PostAsJsonAsync(pathDH, donhang);
+                respond.EnsureSuccessStatusCode();   
+        }
+
+        public async void capNhatDonHangAsync(Donhang donhang)
+        {
+            HttpResponseMessage respond = await GetAPI("DonHangUrl").PutAsJsonAsync($"{pathDH}/{donhang.MaDh}", donhang);
+            respond.EnsureSuccessStatusCode();
+        }
+
+        public async void taoChiTietDHAsync(Chitietdonhang chitietdh)
+        {
+            HttpResponseMessage respond = await GetAPI("DonHangUrl").PostAsJsonAsync(pathCTDH, chitietdh);
+            respond.EnsureSuccessStatusCode();
+        }
+
     }
 }
