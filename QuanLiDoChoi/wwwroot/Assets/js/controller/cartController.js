@@ -39,6 +39,10 @@
 
                         window.location.href = "/Cart/Index";
                     }
+                    else {
+                        location.reload();
+                        alert("Cập nhật thất bại, số lượng sản phẩm tồn kho không đủ!")
+                    }
                 }
             })
         });

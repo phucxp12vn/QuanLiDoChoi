@@ -270,7 +270,7 @@ WriteAttributeValue("", 2520, item.MaDh, 2520, 10, false);
             WriteLiteral("    </tbody>\r\n</table>\r\n\r\n");
             EndContext();
             BeginContext(2653, 147, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("pager", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7c138aba96454e3eb6a80fb6b1531a57", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("pager", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "86494d80a7434b42a9b840a17a4bd94b", async() => {
             }
             );
             __PagedList_Core_Mvc_PagerTagHelper = CreateTagHelper<global::PagedList.Core.Mvc.PagerTagHelper>();

@@ -106,7 +106,19 @@ namespace QuanLiDoChoi.Controllers
                 var jsonItem = listSession.SingleOrDefault(x => x.SP.MaSp == item.SP.MaSp);
                 if(jsonItem != null)
                 {
-                    item.SoLuong = jsonItem.SoLuong;
+                    Sanpham sanpham = GetSanphamAsync(item.SP.MaSp).GetAwaiter().GetResult();
+                    if(sanpham.SoLuongTon >= jsonItem.SoLuong)
+                    {
+                        item.SoLuong = jsonItem.SoLuong;
+                    }
+                    else
+                    {
+                        return Json(new
+                        {
+                            status = false
+                        });
+                    }
+
                 }
             }
             HttpContext.Session.SetComplexData(CartSession, Sessioncart);
@@ -178,13 +190,25 @@ namespace QuanLiDoChoi.Controllers
                 var cart = HttpContext.Session.GetComplexData<List<CartItem>>(CartSession);
                 foreach(var item in cart)
                 {
-                    Chitietdonhang chitetdh = new Chitietdonhang();
-                    chitetdh.MaDh = maDh;
-                    chitetdh.MaSp = item.SP.MaSp;
-                    chitetdh.SoLuong = item.SoLuong;
-                    chitetdh.ThanhTien = item.SP.GiaBanLe * item.SoLuong;
-                    TongTien += (int)chitetdh.ThanhTien;
-                    taoChiTietDHAsync(chitetdh);
+                    //Kiem tra so luong trc khi them don hang
+                    Sanpham sanpham = GetSanphamAsync(item.SP.MaSp).GetAwaiter().GetResult();
+                    if (sanpham.SoLuongTon >= item.SoLuong)
+                    {
+                        Chitietdonhang chitetdh = new Chitietdonhang();
+                        chitetdh.MaDh = maDh;
+                        chitetdh.MaSp = item.SP.MaSp;
+                        chitetdh.SoLuong = item.SoLuong;
+                        chitetdh.ThanhTien = item.SP.GiaBanLe * item.SoLuong;
+                        TongTien += (int)chitetdh.ThanhTien;
+                        taoChiTietDHAsync(chitetdh);
+                        CapNhatSLSanPhamAsync(sanpham, item.SoLuong);
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Sản phần không đủ số lượng!");
+                    }
+
                 }
 
                 donhang.TongTien = TongTien;
@@ -218,8 +242,10 @@ namespace QuanLiDoChoi.Controllers
             
         }
 
+
         public async void taoDonHangAsync(Donhang donhang)
         {
+
                 HttpResponseMessage respond = await GetAPI("DonHangUrl").PostAsJsonAsync(pathDH, donhang);
                 respond.EnsureSuccessStatusCode();   
         }
@@ -227,6 +253,27 @@ namespace QuanLiDoChoi.Controllers
         public async void capNhatDonHangAsync(Donhang donhang)
         {
             HttpResponseMessage respond = await GetAPI("DonHangUrl").PutAsJsonAsync($"{pathDH}/{donhang.MaDh}", donhang);
+            respond.EnsureSuccessStatusCode();
+        }
+
+        public async Task<Sanpham> GetSanphamAsync(string MaSp)
+        {
+            Sanpham sanpham = null;
+
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync($"{pathSP}/{MaSp}");
+
+            if (respond.IsSuccessStatusCode)
+            {
+                sanpham = await respond.Content.ReadAsAsync<Sanpham>();
+            }
+
+            return sanpham;
+        }
+
+        public async void CapNhatSLSanPhamAsync(Sanpham sanpham, int SoLuong)
+        {
+            sanpham.SoLuongTon -= SoLuong;
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").PutAsJsonAsync($"{pathSP}/{sanpham.MaSp}", sanpham);
             respond.EnsureSuccessStatusCode();
         }
 

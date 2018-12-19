@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\QuanLiDoChoi",
-    "\\QuanLiDoChoi\\Views\\Admin",
-    "\\QuanLiDoChoi\\Views\\Shared",
-    "\\QuanLiDoChoi\\Views\\taikhoan",
+    "\\QuanLiDoChoi\\Controllers",
+    "\\QuanLiDoChoi\\Models",
     "\\QuanLiDoChoi\\wwwroot",
+    "\\QuanLiDoChoi\\wwwroot\\Assets",
     "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin",
     "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin\\js",
-    "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin\\js\\controller",
-    "\\sanpham.api"
+    "\\QuanLiDoChoi\\wwwroot\\Assets\\js",
+    "\\QuanLiDoChoi\\wwwroot\\Assets\\js\\controller"
   ],
-  "SelectedNode": "\\QuanLiDoChoi\\wwwroot\\AssetsAdmin\\js\\controller\\cartController.js",
+  "SelectedNode": "\\QuanLiDoChoi\\Models\\CartItem.cs",
   "PreviewInSolutionExplorer": false
 }

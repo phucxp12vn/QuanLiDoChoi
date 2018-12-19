@@ -23,6 +23,8 @@
         </div>
     </div>
 </div>
+@Html.ValidationMessage("LoiSoLuong")
+
 @if (Model != null)
 {
     <!-- //page -->
@@ -81,13 +83,13 @@
                 </div>
             </div>
 
-            <div style="margin-top:10px;"> 
+            <div style="margin-top:10px;">
                 <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
                 <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
                 <button id="btnDeleteAll" class="btn btn-danger ">Xóa giỏ hàng</button>
                 <button id="btnPayment" class="btn btn-success">Thanh toán</button>
             </div>
-  
+
 
             <h1 style="text-align:right"> Tổng tiền: @tongtien.ToString("N0") VNĐ</h1>
 
