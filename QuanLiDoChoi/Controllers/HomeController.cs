@@ -50,7 +50,7 @@ namespace QuanLiDoChoi.Controllers
                 // Gán dữ liệu API đọc được
                 var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
 
-                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString);
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString).Where(x => x.TrangThai == "1");
 
                 sanpham = deserialized.ToList();
             }

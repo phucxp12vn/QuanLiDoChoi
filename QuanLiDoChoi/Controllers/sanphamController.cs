@@ -41,7 +41,7 @@ namespace QuanLiDoChoi.Controllers
                 // Gán dữ liệu API đọc được
                 var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
 
-                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString).Where(x => x.TrangThai == "1");
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Sanpham>>(taikhoanJsonString).Where(x => x.TrangThai == "1").OrderByDescending(x =>x.MaSp);
 
                 sanpham = deserialized.ToList();
 
@@ -82,9 +82,10 @@ namespace QuanLiDoChoi.Controllers
             {
                 sanpham.SoLuongTon = 0;
                 sanpham.TrangThai = "1";
+                sanpham.Hinhanh = "/Assets/imagedetail/doreamon.jpg";
+                sanpham.Hinhanhindex = "/Assets/images/doreamon.jpg";
                 HttpResponseMessage respond = await GetAPI("SanPhamUrl").PostAsJsonAsync(pathSP, sanpham);
                 respond.EnsureSuccessStatusCode();
-
                 return RedirectToAction(nameof(Index));
             }
 
@@ -147,6 +148,8 @@ namespace QuanLiDoChoi.Controllers
            
             if (ModelState.IsValid)
             {
+                sanpham.Hinhanh = "/Assets/imagedetail/minion.jpg";
+                sanpham.Hinhanhindex = "/Assets/images/minion.jpg";
                 HttpResponseMessage respond = await GetAPI("SanPhamUrl").PutAsJsonAsync($"{pathSP}/{sanpham.MaSp}", sanpham);
                 respond.EnsureSuccessStatusCode();
 

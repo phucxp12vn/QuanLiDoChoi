@@ -15,7 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="MaSp" class="control-label">Mã SP</label>
-                <input asp-for="MaSp" class="form-control"  readonly/>
+                <input asp-for="MaSp" class="form-control" readonly />
                 <span asp-validation-for="MaSp" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,18 +44,21 @@
                 <span asp-validation-for="MotaSp" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Hinhanh" class="control-label">Hình ảnh</label>
-                <input asp-for="Hinhanh" class="form-control" />
-                <span asp-validation-for="Hinhanh" class="text-danger"></span>
+                <label class="control-label col-md-2">Hình Ảnh Đại Diện</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Hinhanhindex, new { htmlAttributes = new { @class = "form-control", @id = "textfile", @readonly = "readonly", @style = "width:50%" } })
+                    <br />
+                    <input type="file" name="file" id="upload" onchange="readURL(this);" />
+                    @Html.ValidationMessageFor(model => model.Hinhanhindex, "", new { @class = "text-danger" })
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Hinhanhindex" class="control-label">Hình ảnh index</label>
-                <input asp-for="Hinhanhindex" class="form-control" />
-                <span asp-validation-for="Hinhanhindex" class="text-danger"></span>
-            </div>
-            <div class="form-group" style="display:flex" >
+
+            <img src=@Html.DisplayFor(model => model.Hinhanhindex) alt="Sample Image" width="155px" style="margin-left:17%" id="imgDisplay" />
+            <br />
+            <br />
+            <div class="form-group" style="display:flex">
                 <label asp-for="TrangThai" class="control-label">Trạng thái</label>
-                <input asp-for="TrangThai" type="radio" class="form-control" value="1"  />Còn Bán
+                <input asp-for="TrangThai" type="radio" class="form-control" value="1" />Còn Bán
                 <input asp-for="TrangThai" type="radio" class="form-control" value="0" />Ngừng Bán
                 <span asp-validation-for="TrangThai" class="text-danger"></span>
             </div>
@@ -70,3 +73,26 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts
+    {
+    <script type="text/javascript">
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgDisplay')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150);
+                };
+                var _choose_path = document.getElementById("upload").value;
+                var filepath = "/Assets/images" + _choose_path.replace("C:\\fakepath\\", "/");
+                document.getElementById("textfile").value = filepath;
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+}
