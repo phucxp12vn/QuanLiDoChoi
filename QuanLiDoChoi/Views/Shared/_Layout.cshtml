@@ -82,14 +82,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                         <li>
                             <a>
+                                <span class="fa fa-money" aria-hidden="true"></span> @Html.ActionLink("Xem đơn hàng", "donhang", "Home")
+                            </a>
+                        </li>
+                        <li>
+                            <a>
                                 <span class="fa fa-sign-out" aria-hidden="true"></span> @Html.ActionLink("Thoát", "logout", "Home")
                             </a>
                         </li>
                         if (power == "1")
                         {
                             <li>
-                                <a>
-                                    <span class="fa fa-share-square" aria-hidden="true"></span> <a href="#"> Trang Admin</a>
+                                <a href="/Admin">
+                                    <span class="fa fa-share-square" aria-hidden="true"></span> Trang Admin
                                 </a>
                             </li>
                         }

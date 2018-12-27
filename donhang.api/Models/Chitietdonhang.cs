@@ -9,5 +9,6 @@ namespace donhang.api.Models
         public string MaSp { get; set; }
         public int? SoLuong { get; set; }
         public decimal? ThanhTien { get; set; }
+        public int? Status { get; set; }
     }
 }

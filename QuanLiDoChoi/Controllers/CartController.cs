@@ -184,7 +184,6 @@ namespace QuanLiDoChoi.Controllers
                 donhang.Status = 1;
                 donhang.TaiKhoan = userName;
                 donhang.DaThanhToan = 0;
-                taoDonHangAsync(donhang);
                 //Xong tao chi tiet don hang
                 int TongTien = 0;
                 var cart = HttpContext.Session.GetComplexData<List<CartItem>>(CartSession);
@@ -199,6 +198,7 @@ namespace QuanLiDoChoi.Controllers
                         chitetdh.MaSp = item.SP.MaSp;
                         chitetdh.SoLuong = item.SoLuong;
                         chitetdh.ThanhTien = item.SP.GiaBanLe * item.SoLuong;
+                        chitetdh.Status = 1;
                         TongTien += (int)chitetdh.ThanhTien;
                         taoChiTietDHAsync(chitetdh);
                         CapNhatSLSanPhamAsync(sanpham, item.SoLuong);
@@ -212,14 +212,15 @@ namespace QuanLiDoChoi.Controllers
                 }
 
                 donhang.TongTien = TongTien;
-                capNhatDonHangAsync(donhang);
+                taoDonHangAsync(donhang);
+                HttpContext.Session.Remove(CartSession);
             }
             else
             {
                 return RedirectToAction("dangnhap","home","");
             }
 
-            return Redirect("/ThanhCong");
+            return RedirectToAction("ThanhCong");
         }
 
         private async Task<string> GetMaDHAsync()
@@ -234,9 +235,9 @@ namespace QuanLiDoChoi.Controllers
 
                 var count = JsonConvert.DeserializeObject<IEnumerable<Donhang>>(taikhoanJsonString).Count();
 
-                if (count < 9) return "SP00" + ++count;
-                else if (count < 99) return "SP0" + ++count;
-                else return "SP" + ++count;
+                if (count < 9) return "DH00" + ++count;
+                else if (count < 99) return "DH0" + ++count;
+                else return "DH" + ++count;
             }
             else return null;
             
@@ -281,6 +282,12 @@ namespace QuanLiDoChoi.Controllers
         {
             HttpResponseMessage respond = await GetAPI("DonHangUrl").PostAsJsonAsync(pathCTDH, chitietdh);
             respond.EnsureSuccessStatusCode();
+        }
+
+        [HttpGet]
+        public IActionResult ThanhCong()
+        {
+            return View();
         }
 
     }

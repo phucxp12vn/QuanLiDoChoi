@@ -11,7 +11,7 @@ using sanpham.api.Models;
 
 namespace QuanLiDoChoi.Controllers
 {
-    public class sanphamController : Controller
+    public class sanphamController : BaseAdminController
     {
         static HttpClient GetAPI(string myChoice)
         {

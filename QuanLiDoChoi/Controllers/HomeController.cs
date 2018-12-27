@@ -8,7 +8,9 @@ using Newtonsoft.Json;
 using khachhang.api.Models;
 using sanpham.api.Models;
 using Microsoft.AspNetCore.Http;
-
+using PagedList.Core;
+using donhang.api.Models;
+using QuanLiDoChoi.Models;
 
 namespace QuanLiDoChoi.Controllers
 {
@@ -30,6 +32,8 @@ namespace QuanLiDoChoi.Controllers
 
         const string pathKH = "api/taikhoans";
         const string pathSP = "api/sanphams";
+        const string pathDH = "api/donhangs";
+        const string pathCTDH = "api/chitietdonhangs";
 
 
 
@@ -155,5 +159,174 @@ namespace QuanLiDoChoi.Controllers
             return Redirect("/");
         }
 
+
+        public async Task<IActionResult> DonHang(int page = 1)
+        {
+            var userName = HttpContext.Session.GetString("userName");
+            if (userName != null && userName != "")
+            {
+
+                List<Donhang> donhang = new List<Donhang>();
+
+                HttpResponseMessage respond = await GetAPI("DonHangUrl").GetAsync(pathDH);
+
+                if (respond.IsSuccessStatusCode)
+                {
+                    // Gán dữ liệu API đọc được
+                    var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
+
+                    var deserialized = JsonConvert.DeserializeObject<IEnumerable<Donhang>>(taikhoanJsonString).Where(x => x.Status == 1 & x.TaiKhoan == userName).OrderByDescending(x => x.MaDh);
+
+                    donhang = deserialized.ToList();
+
+                }
+
+                return View(donhang.AsQueryable().ToPagedList(page, 5));
+            }
+            else
+            {
+                return RedirectToAction("dangnhap", "home", "");
+            }
+        }
+
+
+        public async Task<IActionResult> ChiTietDonHang(string id)
+        {
+
+            if (id == null)
+            {
+                ModelState.AddModelError("", "Chưa nhập mã đơn hàng");
+                return RedirectToAction("DonHang");
+            }
+            else
+            {
+
+                List<Chitietdonhang> chitietdonhang = new List<Chitietdonhang>();
+
+                HttpResponseMessage respond = await GetAPI("DonHangUrl").GetAsync(pathCTDH);
+
+                if (respond.IsSuccessStatusCode)
+                {
+                    // Gán dữ liệu API đọc được
+                    var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
+
+                    var deserialized = JsonConvert.DeserializeObject<IEnumerable<Chitietdonhang>>(taikhoanJsonString).Where(x => x.MaDh == id);
+                    chitietdonhang = deserialized.ToList();
+                    List<CartItem> listSanPham = await chuyenThanhListSPAsync(chitietdonhang);
+                    return View(listSanPham);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Không tìm được mã đơn hàng!");
+                    return RedirectToAction("DonHang");
+                }
+            }
+        }
+
+        private async Task<List<CartItem>> chuyenThanhListSPAsync(List<Chitietdonhang> chitietdonhang)
+        {
+            List<CartItem> result = new List<CartItem>();
+            foreach (var item in chitietdonhang)
+            {
+                Sanpham sanpham = null;
+                HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync($"{pathSP}/{item.MaSp}");
+                if (respond.IsSuccessStatusCode)
+                {
+                    sanpham = await respond.Content.ReadAsAsync<Sanpham>();
+                    CartItem newItem = new CartItem();
+                    newItem.SP = sanpham;
+                    newItem.SoLuong = (int)item.SoLuong;
+                    result.Add(newItem);
+                }
+                else
+                {
+                    return result;
+                }
+            }
+            return result;
+        }
+
+        public async Task<IActionResult> Cancel(string id)
+        {
+            HttpClient client = GetAPI("DonHangUrl");
+            HttpResponseMessage respond = await client.GetAsync($"{pathDH}/{id}");
+
+            if (!respond.IsSuccessStatusCode)
+            {
+                ModelState.AddModelError("", "Hủy đơn hàng thất bại!");
+            }
+            else
+            {
+                Donhang donhang = await respond.Content.ReadAsAsync<Donhang>();
+                List<Chitietdonhang> chitietdonhang = GetChiTietDonHangAsync(donhang.MaDh).GetAwaiter().GetResult();
+                foreach (var item in chitietdonhang)
+                {
+                    Sanpham sanpham = GetSanphamAsync(item.MaSp).GetAwaiter().GetResult();
+                    CapNhatSLSanPhamAsync(sanpham, (int)item.SoLuong);
+                    item.Status = 0;
+                    capNhatChiTietDonHangAsync(item);
+                }
+                donhang.Status = 0;
+                capNhatDonHangAsync(donhang);
+            }
+
+            return RedirectToAction("DonHang", "Home");
+        }
+
+
+        public async Task<List<Chitietdonhang>> GetChiTietDonHangAsync(string MaDH)
+        {
+            List<Chitietdonhang> chitietdonhang = new List<Chitietdonhang>();
+
+            HttpResponseMessage respond = await GetAPI("DonHangUrl").GetAsync(pathCTDH);
+
+            if (respond.IsSuccessStatusCode)
+            {
+                // Gán dữ liệu API đọc được
+                var taikhoanJsonString = await respond.Content.ReadAsStringAsync();
+
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Chitietdonhang>>(taikhoanJsonString).Where(x => x.MaDh == MaDH);
+                chitietdonhang = deserialized.ToList();
+                return chitietdonhang;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async void CapNhatSLSanPhamAsync(Sanpham sanpham, int SoLuong)
+        {
+            sanpham.SoLuongTon += SoLuong;
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").PutAsJsonAsync($"{pathSP}/{sanpham.MaSp}", sanpham);
+            respond.EnsureSuccessStatusCode();
+        }
+
+        public async void capNhatDonHangAsync(Donhang donhang)
+        {
+            HttpResponseMessage respond = await GetAPI("DonHangUrl").PutAsJsonAsync($"{pathDH}/{donhang.MaDh}", donhang);
+            respond.EnsureSuccessStatusCode();
+        }
+
+        public async void capNhatChiTietDonHangAsync(Chitietdonhang ctdh)
+        {
+            HttpResponseMessage respond = await GetAPI("DonHangUrl").PutAsJsonAsync($"{pathCTDH}/{ctdh.MaDh}&&{ctdh.MaSp}", ctdh);
+            respond.EnsureSuccessStatusCode();
+        }
+
+
+        public async Task<Sanpham> GetSanphamAsync(string MaSp)
+        {
+            Sanpham sanpham = null;
+
+            HttpResponseMessage respond = await GetAPI("SanPhamUrl").GetAsync($"{pathSP}/{MaSp}");
+
+            if (respond.IsSuccessStatusCode)
+            {
+                sanpham = await respond.Content.ReadAsAsync<Sanpham>();
+            }
+
+            return sanpham;
+        }
     }
 }

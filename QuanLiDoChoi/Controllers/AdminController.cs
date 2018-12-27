@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace QuanLiDoChoi.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseAdminController
     {
 
         public IActionResult Index()

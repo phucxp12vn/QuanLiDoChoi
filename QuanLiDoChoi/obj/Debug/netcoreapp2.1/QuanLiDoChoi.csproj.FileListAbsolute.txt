@@ -51,3 +51,6 @@ P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\donhang\Detail.
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\demo\Index.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Index.g.cshtml.cs
 P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Payment.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Cart\ThanhCong.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\DonHang.g.cshtml.cs
+P:\QuanLiDoChoi\QuanLiDoChoi\obj\Debug\netcoreapp2.1\Razor\Views\Home\ChiTietDonHang.g.cshtml.cs

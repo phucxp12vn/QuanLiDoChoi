@@ -10,7 +10,7 @@ using PagedList.Core;
 
 namespace QuanLiDoChoi.Controllers
 {
-    public class taikhoanController : Controller
+    public class taikhoanController : BaseAdminController
     {
         static HttpClient GetAPI(string myChoice)
         {

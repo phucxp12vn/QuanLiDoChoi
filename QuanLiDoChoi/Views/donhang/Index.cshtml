@@ -75,11 +75,14 @@
                 </td>
             }
 
-            <td align="center">
-                <button class="btn btn-success" onclick="location.href='@Url.Action("Detail",  new { id = item.MaDh })';return false;">Xem</button>&nbsp&nbsp&nbsp&nbsp
-                <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit",  new { id = item.MaDh })';return false;">Sửa</button>&nbsp&nbsp&nbsp&nbsp
-                <button class="btn btn-danger" onclick="notify('@item.MaDh');return false;">Xóa</button>&nbsp&nbsp&nbsp&nbsp
-            </td>
+                <td align="center">
+                    <button class="btn btn-success" onclick="location.href='@Url.Action("Detail",  new { id = item.MaDh })';return false;">Xem</button>&nbsp&nbsp&nbsp&nbsp
+                    @if (item.DaThanhToan != 1)
+                    {
+                        <button class="btn btn-danger" onclick="notify('@item.MaDh');return false;">Hủy</button>
+                    }
+
+                </td>
         </tr>
         }
     </tbody>
@@ -89,9 +92,9 @@
 
 <script type="text/javascript">
     function notify(id) {
-        var con = confirm("Bạn có chắc chắn muốn tạm ngưng bán sản phẩm này?");
+        var con = confirm("Bạn có chắc chắn muốn hủy đơn hàng này?");
         if (con == true) {
-            location.href = '/DonHang/Delete/' + id;
+            location.href = '/DonHang/Cancel/' + id;
         }
     }
 </script>
